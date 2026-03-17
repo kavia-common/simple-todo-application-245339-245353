@@ -1,82 +1,78 @@
-# Lightweight React Template for KAVIA
+# React Todo App (Frontend)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This folder contains the React frontend for a simple Todo application. The app runs locally on port **3000** by default.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+The product goal for this frontend is a lightweight Todo experience with:
+
+- Adding new todos
+- Marking todos complete or incomplete
+- Deleting todos
+- Filtering by status (all, active, completed)
+- Persisting todos in browser storage for a backend-free workflow
+- Responsive, centered layout suitable for desktop and mobile
+
+The current codebase also includes a light/dark theme toggle as part of the UI template.
+
+## Tech Stack
+
+This app is built with:
+
+- React
+- Create React App (`react-scripts`)
+- Vanilla CSS (no UI framework)
 
 ## Getting Started
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+- Node.js (recommended: current LTS)
+- npm
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Install dependencies
 
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```bash
+npm install
 ```
 
-### Components
+### Run the app
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+```bash
+npm start
+```
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+Then open:
 
-## Learn More
+- http://localhost:3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Environment Variables
 
-### Code Splitting
+Create React App only exposes environment variables prefixed with `REACT_APP_`. Create a `frontend/.env` file to override defaults.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The following keys are supported by the container configuration (some may not be used yet by the current frontend code, but are available for future API/WebSocket integration):
 
-### Analyzing the Bundle Size
+- `REACT_APP_API_BASE`: Base path for API requests (for example, `https://example.com/api`)
+- `REACT_APP_BACKEND_URL`: Backend base URL (if/when a backend is introduced)
+- `REACT_APP_FRONTEND_URL`: Public frontend URL (useful for constructing absolute links)
+- `REACT_APP_WS_URL`: WebSocket URL (if/when realtime is introduced)
+- `REACT_APP_NODE_ENV`: Runtime environment indicator
+- `REACT_APP_NEXT_TELEMETRY_DISABLED`: Telemetry toggle (reserved)
+- `REACT_APP_ENABLE_SOURCE_MAPS`: Enable/disable sourcemaps in builds
+- `REACT_APP_PORT`: Preferred port for the dev server (default is typically 3000)
+- `REACT_APP_TRUST_PROXY`: Proxy trust toggle (reserved)
+- `REACT_APP_LOG_LEVEL`: Logging verbosity level (reserved)
+- `REACT_APP_HEALTHCHECK_PATH`: Healthcheck path (reserved)
+- `REACT_APP_FEATURE_FLAGS`: Feature flag configuration (reserved)
+- `REACT_APP_EXPERIMENTS_ENABLED`: Experiment toggle (reserved)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Available Scripts
 
-### Making a Progressive Web App
+- `npm start`: Starts the dev server
+- `npm test`: Runs tests (CRA test runner)
+- `npm run build`: Builds a production bundle to `build/`
+- `npm run eject`: Ejects CRA configuration (one-way)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Troubleshooting
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you change `.env` values while the dev server is running, you usually need to restart `npm start` for changes to take effect.
